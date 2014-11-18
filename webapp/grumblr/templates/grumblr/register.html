@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Registration</title>
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/signin.css" rel="stylesheet">
+    <link href="/static/css/customCSS.css" rel="stylesheet">
+  </head>
+  <body>
+  	<div class ="container">
+  		<div class = "row">
+  			<div class="col-sm-6">
+  				{% for error in form.non_field_errors %}
+  				<p style = "color: red">
+  		{{ error }}
+  	</p>
+  	{% endfor %}
+  			</div>
+  		</div>
+  	</div>
+  	<div class="container">
+  		<div class="row">
+	  	 	<div class="col-sm-6">
+		  		<form role="form" method="post" action="{% url 'register'%}">
+		  			<table class="table">
+					{% for field in form.visible_fields %}
+						<tr>
+							<div class = "form-group">
+								<td>{{field.label_tag}}</td>
+								<td>{{field}}</td>
+								<td style="color: red">{{field.errors}}</td>
+							</div>
+						</tr>					
+					{% endfor %}
+					</table>
+					{% for field in form.hidden_fields %}
+					{{field}}
+					{% endfor %}
+					{% csrf_token %}
+					<input type="submit" value="Register"/>
+					</form>
+<!--
+				  <div class="form-group">
+				   	Username:
+				    <input type="text" class = "form-control" name="username" value="{{username}}">
+				  </div>
+				  <div class="form-group">
+				  	Password:
+				    <input type="password" class = "form-control" name="password1"></td>
+				  </div>
+				  <div class="form-group">
+				    Confirm password:
+				    <td><input type="password" class = "form-control" name="password2"></td>
+				  </div>
+				  
+				  <input type="submit" value="Register" />
+					{% csrf_token %}
+				-->
+				</form>
+			</div>
+  	 	</div>
+  	</div>
+  	 
+  	
+  	
+  	
+  	
+          
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+  </body>
+</html>
+

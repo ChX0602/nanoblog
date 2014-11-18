@@ -1,0 +1,64 @@
+{% extends "grumblr\base.html" %}
+
+      {% for error in errors %}
+  		<p style="color: red">
+		{{ error }}
+		</p>
+	 {% endfor %}
+	 {% block content %}
+      <div class="container">
+          <div class="col-sm-4">
+		       <div class="panel panel-default">
+                <div class="panel-heading">Profile</div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class = "list-group-item">{{profile.first_name}}</li>
+                            <li class = "list-group-item">{{profile.last_name}}</li>
+                            <li class = "list-group-item">{{profile.address_1}}</li>
+                            <li class = "list-group-item">{{profile.address_2}}</li>
+                            <li class = "list-group-item">{{profile.city}}</li>
+                            <li class = "list-group-item">{{profile.state}}</li>
+                            <li class = "list-group-item">{{profile.zip}}</li>
+							<li class = "list-group-item">{{profile.phone}}</li>
+                            <li class = "list-group-item">{{profile.country}}</li>
+                        </ul>                       
+                        <div align="center">
+                        </a>
+                        </div>
+                    </div>                      
+              </div>
+          </div>   
+           <div class="col-sm-8">
+            <div class="panel panel-default" >
+                  <div class="panel-heading">
+                      <h3 class="panel-title">My grumblrs</h3>
+                  </div>
+                  <div class="panel-body" style="background-color: #ededed">
+                    {% for post in posts %}
+                              <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="media">
+                                        <h6>{{post.user}}</h6>
+                                        <a class="pull-left" href="#">
+                                            <img class="media-object" src="{% url 'photo' 42 post.user.id %}" alt="..." height="50" width="50">
+                                        </a>
+                                        <div class="media-body">                    
+                                            <div class="well well">{{post}}</div>
+                                            
+                                            <div style="float:right">
+                                                <button type="button" class="btn btn-primary">
+                                                    <span class="glyphicon glyphicon-edit"></span>
+                                                    Comment
+                                                </button>
+                                            </div>       
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                        {% endfor %}
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+      {% endblock %}

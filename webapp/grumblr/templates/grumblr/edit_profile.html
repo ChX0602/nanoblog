@@ -1,0 +1,57 @@
+{% extends "grumblr\base.html" %}
+{% block content %}      
+    <div class="container">
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="media">
+                        <a class="pull-left" href="#">
+                        	{% if form.picture.value %}
+                            	<img src="{% url 'photo' id user.id%}" alt="{{form.first_name.value}}{{form.last_name.value}}" width="100" height="100">
+                            {% else %}
+                            	<img class="media-object" src="" alt="Upload picture" height="100" width="100">
+                            {% endif %}
+                        </a>
+                        <div class="media-body">                           
+                            <br>
+                            <a class="btn btn-primary" href="{% url 'change_password' %}">
+                                Change Password
+                            </a>
+                    
+                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+              
+              
+
+        </div>
+          
+          
+           <div class="col-sm-8">
+            <div class="panel panel-default" >
+                  <div class="panel-heading">
+                      <h3 class="panel-title">Profile</h3>
+                  </div>
+                  <div class="panel-body" style="background-color: #ededed">
+                              <div class="panel panel-default">
+                                  {% if form.picture.value %}
+                                  	<img src="{% url 'photo' id user.id%}" alt="{{form.first_name.value}}{{form.last_name.value}}" width="200px">
+                                  {% endif %}
+                                  <form class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action = "{% url 'editProfile' id %}">
+                                  	<table>
+										{{form}}
+									</table>
+									<input type="submit" value="Save entry">
+									{% csrf_token %}
+								  </form>
+								  <a href="{% url 'home' %}"><button>Cancel</button></a>
+                                </form> 
+                            </div>
+              
+                  </div>
+              </div>
+          </div>
+    </div>
+     {%endblock%}
