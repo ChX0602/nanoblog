@@ -12,3 +12,6 @@ To run this on localhost, clone it first and go the the webapp folder and
 Note that the site does not actually send an email to confirm registration, instead it prints out the url in the shell, copy and paste it to the browser to finish new user registration.
 
 ![screenshot](https://github.com/ChX0602/nanoblog/blob/master/webapp/screenshot0.png)
+![screenshot](https://github.com/ChX0602/nanoblog/blob/master/webapp/screenshot1.png)
+![screenshot](https://github.com/ChX0602/nanoblog/blob/master/webapp/screenshot2.png)
+
